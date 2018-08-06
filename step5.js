@@ -6,7 +6,7 @@ var requestOptions = {
   path: '/http-examples/step5.html'
 };
 
-getHTML(requestOptions);
+//getHTML(requestOptions);
 //console.log(getHTML);
 
 function printHTML (html) {
@@ -14,4 +14,5 @@ function printHTML (html) {
   console.log(html);
 };
 
-printHTML(getHTML);
+//printHTML(getHTML);
+getHTML(requestOptions, printHTML);

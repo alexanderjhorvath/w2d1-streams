@@ -1,8 +1,10 @@
 var https = require('https');
-var receivedData = '';
+// var receivedData = '';
 
-function getHTML (options, callback) {
-    var data = '';
+module.exports = function getHTML (options, callback) {
+  // var https = require('https');
+  var data = '';
+  var receivedData = '';
 
   // borrowed from template provided in lesson and working with Kyle.
   https.get(options, function (response) {
@@ -13,19 +15,7 @@ function getHTML (options, callback) {
     });
     response.on('end', function() {
       callback(receivedData);
-      console.log('Response stream complete.');
+      // console.log('Response stream complete.');
     });
   });
 }
-
-function printHTML (html) {
-  console.log(html);
-}
-
-var requestOptions = {
-  host: 'sytantris.github.io',
-  path: '/http-examples/step4.html'
-};
-
-getHTML(requestOptions, printHTML);
-

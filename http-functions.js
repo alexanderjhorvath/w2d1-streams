@@ -11,17 +11,11 @@ module.exports = function getHTML (options, callback) {
     response.setEncoding('utf8');
     response.on('data', function (chunk) {
       //console.log(chunk, '\nChunk Length: ', chunk.length);
-      for (data in chunk) {
-        //console.log(chunk);
         receivedData += chunk;
-        // console.log(receivedData);
-        return receivedData;
-      };
     });
-
     response.on('end', function() {
+      callback(receivedData);
       console.log('Response stream complete.');
-      console.log(receivedData);
     });
   });
 }
